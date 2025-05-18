@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Upload</title>
+</head>
+<body>
+  <h2>Upload Image</h2>
+  <form id="uploadForm">
+    <input type="file" id="fileInput" accept="image/*" required />
+    <button type="submit">Upload</button>
+  </form>
+  <p id="result"></p>
+  <script>
+    const uploadForm = document.getElementById('uploadForm');
+    const fileInput = document.getElementById('fileInput');
+    const result = document.getElementById('result');
+    uploadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const file = fileInput.files[0];
+      if (!file) {
+        result.innerText = 'Please select a file first.';
+        return;
+      }
+      const formData = new FormData();
+      formData.append('file', file);
+      try {
+        const response = await fetch('https://func-apps.azurewebsites.net/api/upload', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await response.text(); // or .json() if your API returns JSON
+        result.innerText = 'Upload successful:\n' + data;
+      } catch (err) {
+        result.innerText = 'Upload failed: ' + err;
+      }
+    });
+  </script>
+</body>
+</html>
