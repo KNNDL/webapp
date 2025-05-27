@@ -1,10 +1,10 @@
 name: Deploy to Azure Static Web Apps
 
 env:
-  APP_LOCATION: "/" # Location of your application source code
+  APP_LOCATION: "public" # Location of your application source code
   API_LOCATION: "" # Location of your Azure Functions code (if any)
   OUTPUT_LOCATION: "" # Location of the build output (if applicable)
-
+  skip_app_build: true
 on:
   push:
     branches:
