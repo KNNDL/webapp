@@ -20,7 +20,7 @@ jobs:
           action: "upload"
 
 
-          app_location: "github/workspace/webapp/img_upload.html" # root folder with index.html
+          app_location: "https://github.com/KNNDL/webapp" # root folder with index.html
 
         
 
