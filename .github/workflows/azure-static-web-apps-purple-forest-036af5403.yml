@@ -22,8 +22,5 @@ jobs:
 
           app_location: "webapp" # root folder with index.html
 
-          
-
-          app_location: "/" # Adjust this path as needed
-          output_location: "" # Leave empty if no build step is required
+        
 
